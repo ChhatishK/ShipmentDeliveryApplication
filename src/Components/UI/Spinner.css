@@ -12,14 +12,14 @@
     height: 100%;
     animation: spinner-rfi6tk 1s infinite linear;
     box-sizing: border-box;
-    border: 11.2px solid rgba(71,75,255,0.1);
+    border: 11.2px solid white;
     border-radius: 50%;
     position: absolute;
   }
   
   .spinner::before {
     animation-direction: reverse;
-    border-right-color: #474bff;
+    border-right-color:white; 
     right: calc(50% - 5.6px);
   }
   
