@@ -9,7 +9,7 @@ const ShipmentList = (props) => {
     if (props.userData == null || props.userData.length === 0) {
         <Spinner />
     } else {
-            shipmentDetails.innerHTML = "";
+            shipmentDetails.removeChild(document.getElementById("spinner"))
             props.userData.reverse();
             var DeliveryDate;
             for (const objs of props.userData) {
@@ -73,7 +73,11 @@ const ShipmentList = (props) => {
                 </li>
 
                 {/* User's data field */}
-                <ul id='shipmentDetails'>Your Cart is Empty</ul>
+                <ul id='shipmentDetails' className='w-full h-full'>
+                    <div id='spinner' className='w-full h-full flex justify-center items-center'>
+                        <Spinner />
+                    </div>
+                </ul>
             </ul>
         </div>
     </div>
