@@ -24,14 +24,16 @@ const ShipmentList = (props) => {
             }
 
             const deliveryStatus = document.createElement("span")
-            if (currentDate() === DeliveryDate) {
-                deliveryStatus.innerHTML = "Item Delivered!"
-                deliveryStatus.style.color = 'lightgreen'
-            } else {
-                deliveryStatus.innerHTML = "On the way..."
-                deliveryStatus.style.color = 'orange'
+            if (deliveryStatus.style.color !== 'green') {
+                if (currentDate() === DeliveryDate) {
+                    deliveryStatus.innerHTML = "Item Delivered!"
+                    deliveryStatus.style.color = 'lightgreen'
+                } else {
+                    deliveryStatus.innerHTML = "On the way..."
+                    deliveryStatus.style.color = 'orange'
+                }
+                li.appendChild(deliveryStatus)
             }
-            li.appendChild(deliveryStatus)
 
             li.style.color = 'white';
             li.style.width = 'full';
