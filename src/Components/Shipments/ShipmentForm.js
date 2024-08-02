@@ -68,7 +68,13 @@ const ShipmentForm = () => {
         const day = date.getDate();
 
         const randomNumber = Math.floor(Math.random() * 10);
-        return `${year}-${month+1}-${day+randomNumber+3}`
+        if (day + 3 > 30) {
+            return `${year}-${month+2}-${(day+randomNumber+3)%30}`
+        } else if (month + 2 > 12) {
+            return `${year+1}-${(month+2)%12}}-${(day+randomNumber+3)%30}`
+        } else {
+            return `${year}-${month+1}-${day+randomNumber+3}`
+        }
     }
 
     return (
