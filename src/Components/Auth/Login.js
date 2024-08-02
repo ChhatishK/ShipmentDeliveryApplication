@@ -41,6 +41,7 @@ const Login = ({ setIsLoggedIn }) => {
             })
             .catch(() => {
                 toast.error("Wrong Credentials!");
+                alert("Login Failed! (userId or password is wrong!)");
                 navigate("/login");
             });
     }
