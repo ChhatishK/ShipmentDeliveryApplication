@@ -75,6 +75,7 @@ function CustomerRegister() {
                 console.log(loginInfo)
                 console.log(userCredential)
             } catch(e) {
+                alert("Registration failed. Try again!")
                 console.log("Error occured!")
             }
             navigate('/login', {state : userId})
@@ -86,25 +87,6 @@ function CustomerRegister() {
         })
     
     }   
-
-    // const handleGoogleSignup = async (e) => {
-    //     e.preventDefault();
-
-    //     alert("This functionality is not working right now! use manually process!")
-    //     return;
-    //     const provider = new GoogleAuthProvider();
-    //     console.log(provider)
-    //     try {
-    //         const result = await getAuth.signInWithPopup(provider)
-    //         const user = result.user;
-    //         const userId = user.uid;
-    //         const loginInfo = addDoc(collection(database, userId))
-    //         console.log(loginInfo)
-    //         navigate("/dashboard", {state : userId})
-    //       } catch (error) {
-    //         console.error("Error signing up with Google:", error);
-    //       }
-    // }
 
   return (
     <form method='POST' onSubmit={submitHandler} className='w-full flex flex-col justify-center items-center'>
@@ -203,7 +185,7 @@ function CustomerRegister() {
 
                     <input 
                         type={showPassword2 ? ("text") : ("password")} 
-                        placeholder='enter password' 
+                        placeholder='confirm password' 
                         required
                         value={formData.confirmPassword}
                         onChange={changeHandler}
@@ -224,7 +206,10 @@ function CustomerRegister() {
 
             <button className='px-[12px] py-[8px] rounded-[8px] bg-yellow-600 text-[18px] mt-5 text-richblack-900 font-medium'>Create Account</button>
             <div className='w-full h-[1px] bg-white'></div>
-            <button className='px-[12px] py-[8px] rounded-[8px] bg-[#1d77aa] border border-slate-300 text-[18px] text-richblack-900 font-medium'>Sign up with Google</button>
+            <button className='px-[12px] py-[8px] rounded-[8px] bg-[#1d77aa] border border-slate-300 text-[18px] text-richblack-900 font-medium' onClick={(e) => {
+                e.preventDefault();
+                alert("Not working!")
+            }}>Sign up with Google</button>
         </div>
 
     </form>
