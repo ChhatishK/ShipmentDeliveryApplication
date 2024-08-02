@@ -39,6 +39,7 @@ const ShipmentForm = () => {
                 deliveryAddress: formData.deliveryAddress,
                 shipmentDate: shipmentTime,
                 DeliveryDate: deliveryTime,
+                status: "Item Shipped/Delivered",
             });
 
             console.log("Document written with ID: ", docRef.id);
@@ -57,7 +58,7 @@ const ShipmentForm = () => {
         const month = date.getMonth();
         const day = date.getDate();
 
-        return `${year}-${month}-${day}`
+        return `${year}-${month+1}-${day}`
     }
 
     function DeliveryDate() {
@@ -67,7 +68,7 @@ const ShipmentForm = () => {
         const day = date.getDate();
 
         const randomNumber = Math.floor(Math.random() * 10);
-        return `${year}-${month}-${day+randomNumber+3}`
+        return `${year}-${month+1}-${day+randomNumber+3}`
     }
 
     return (
