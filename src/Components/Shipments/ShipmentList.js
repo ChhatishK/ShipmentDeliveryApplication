@@ -1,9 +1,11 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Spinner from '../UI/Spinner'
 
+
 const ShipmentList = (props) => {
-    const shipmentAttributes = ['senderName','receiverName','packageWeight','deliveryAddress', 'shipmentDate', 'DeliveryDate']
+    const shipmentAttributes = ['senderName','receiverName','packageWeight','deliveryAddress', 'shipmentDate', 'DeliveryDate', 'status']
     console.log(props.userData);
+
 
     const shipmentDetails = document.getElementById("shipmentDetails");
     if (props.userData == null || props.userData.length === 0) {
@@ -21,18 +23,6 @@ const ShipmentList = (props) => {
                 span.innerHTML = value
                 li.appendChild(span);
 
-            }
-
-            const deliveryStatus = document.createElement("span")
-            if (deliveryStatus.style.color !== 'green') {
-                if (currentDate() === DeliveryDate) {
-                    deliveryStatus.innerHTML = "Item Delivered!"
-                    deliveryStatus.style.color = 'lightgreen'
-                } else {
-                    deliveryStatus.innerHTML = "On the way..."
-                    deliveryStatus.style.color = 'orange'
-                }
-                li.appendChild(deliveryStatus)
             }
 
             li.style.color = 'white';
@@ -54,7 +44,7 @@ const ShipmentList = (props) => {
         const month = today.getMonth();
         const day = today.getDate();
 
-        return `${year}-${month}-${day}`
+        return `${year}-${month+1}-${day}`
     }
 
     
@@ -76,6 +66,7 @@ const ShipmentList = (props) => {
 
                 {/* User's data field */}
                 <ul id='shipmentDetails' className='w-full h-full'>
+
                     <div id='spinner' className='w-full h-full flex justify-center items-center'>
                         <Spinner />
                     </div>
